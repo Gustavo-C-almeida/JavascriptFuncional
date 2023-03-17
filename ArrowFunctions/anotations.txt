@@ -1,0 +1,19 @@
+Criando uma função de forma tradicional:
+function upperName(nome){
+    return nome.toUpperCase();
+}
+
+Posso também criar uma variavel, e essa variável vai ser uma função:
+const upperName = function(nome){
+    return nome.toUpperCase();
+}
+
+Arrow function:
+const upperName = (nome) => {
+    return nome.toUpperCase()
+}
+
+Arrow function ainda mais simples:
+const upperName = (nome) => nome.toUpperCase()
+
+Função para contar o tanto de letras na palavra: const countLetters = (word) => word.length

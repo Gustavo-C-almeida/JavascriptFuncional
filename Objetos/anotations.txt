@@ -1,0 +1,97 @@
+Criar um objeto:
+let carro{} Ao abrir as chaves, estou criando um objeto.
+Declarando atributos dentro do objeto:
+let carro = {
+    marca: "renault",(sempre usar a virgula antes de declarar mais um atributo)
+    nomedoatributo: valor,
+    (Declarando um metodo:)
+    andar: function() {
+        return console.log("Andando")
+    }
+}
+(Acessando a variavel:)
+carro.andar()
+console.log(carro.marca)
+
+Praticamente tudo no JS é objeto, exemplo:
+Console(objeto).log(função)("Olá mundo!"(parametro))
+
+Até essa string terá um metodo (toUpperCase):
+console.log("André".toUpperCase())
+
+Exercicio para práticar: 
+
+let nome = {
+    Maiuscula: function(name){
+     console.log(name.toUpperCase())
+    },
+    Minuscula: function(name){
+        console.log(name.toLowerCase())
+    },
+    Tamanho: function(name){
+        console.log(name.length)
+    }
+}
+n = "Gustavo"
+nome.Maiuscula(n)
+nome.Minuscula(n)
+nome.Tamanho(n)
+
+Exercicio para práticar2: 
+
+let carro = {
+    andando: false,
+    cor: "Preto",
+    marca: "Fiat",
+    preco: 25000,
+    kmhora: 0,
+    andar: function(){
+        console.log("Andando...")
+        this.kmhora = 30
+        this.andando = true
+    },
+    Acelerar: function(){
+        console.log("acelerando...")
+        this.kmhora += 20
+        this.andando = true
+    },
+    desacelerar: function(){
+        console.log("desacelerando...")
+        this.kmhora -= 20
+    },
+    freiar: function(){
+        console.log("freiando...")
+        this.kmhora = 0
+        this.andando = false
+    },
+    status: function(){
+        console.log("KM/HR: ",this.kmhora," ","Andando: ",this.andando," ")
+    }
+}
+carro.status()
+carro.andar()
+carro.status()
+carro.Acelerar()
+carro.status()
+carro.Acelerar()
+carro.status()
+carro.desacelerar()
+carro.status()
+carro.desacelerar()
+carro.status()
+carro.freiar()
+carro.status()
+Saida:
+KM/HR:  0   Andando:  false  
+Andando...
+KM/HR:  30   Andando:  true
+"acelerando...
+KM/HR:  50   Andando:  true  
+acelerando...
+KM/HR:  70   Andando:  true  
+desacelerando...
+KM/HR:  50   Andando:  true  
+desacelerando...
+KM/HR:  30   Andando:  true  
+freiando...
+KM/HR:  0   Andando:  false

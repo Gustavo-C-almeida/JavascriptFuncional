@@ -1,0 +1,11 @@
+Não há como pegar um problema do mundo real e transformar em software sem antes entender o paradigma que você irá utilizar.
+O paradigma é o modelo mental que montará a estrutura para resolver um problema.
+O pensamento da Programação funcional fará com que seja entregue os códigos com a qualidade muito boa, consegue reutilizar os códigos facilmente.
+
+O JavaScript é uma linguagem multiparadigma, Você consegue em JavaScript escrever código orientado a objeto, código procedural e código funcional.
+E em outra linguagem já irá ser diferente.
+
+Daí a importância de você entender quais são os paradigmas que a linguagem que eu vou aprender e implementar.
+
+Depois de um tempo, você percebe que aprender novas linguagens se torna mais fácil quando você passa pelo processo várias vezes.
+

@@ -1,0 +1,32 @@
+Código Imperativo:
+1. Tem mais foco no Fluxo
+2. mutabilidade de dados
+3. Tem o foco em explicar como cada passo deve ser feito
+4. você tem uma maior quantidade de código já que você precisa explicar exatamente como deve ser feito
+5. Ex escrevendo código imperativo para fazer café:
+-Você vai ferver a água
+-Vai pegar um recipiente
+-Vai pegar o coador e colocar no recipiente
+-Vai pegar o filtro e colocar no coador
+-Vai pegar o pó de café
+-Colocar pó de café no filtro
+-Colocar Aguá fervida no Filtro
+6. Quanto mais baixo nível a linguagem é, mais detalhado será, Quanto mais alto nível a linguagem é, mais simplificado será.
+Código Declarativo:
+7. Baixa escalabilidade
+8. Popular
+9. Mais fácil de ser lido e compreendido
+10. Consome menos memória, porém risco de não conseguir ser reutilizado corretamente, ter repetição de código, o que acaba pesando.
+
+Código Declarativo:
+1. Tem mais foco na lógica
+2. Imutabilidade de dados
+3. O declarativa ele foca no que precisa ser feito e não como o como ele deixa para a linguagem fazer.
+4. você tem uma menor quantidade de código
+5. Ex escrevendo código imperativo para fazer café:
+-Faça o café
+6. Quanto mais alto nível a linguagem é, mais simplificado será, Quanto mais baixo nível a linguagem é, mais detalhado será.
+7.Alta escalabilidade
+8. Não tão popular
+9. Mais difícil de compreender.
+10. Consome mais memória, porém se fizer bom uso da reutilização, pode ficar mais leve.
