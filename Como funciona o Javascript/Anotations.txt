@@ -1,0 +1,18 @@
+Stack(pilha de execução): É uma estrutura de dados que registra as chamadas de funções, basicamente se nos chamamamos uma função, então ela é adicionada na pilha e quando nos retornamos de uma função, a mesma é retirada da pilha.
+
+Vamos imaginar o seguinte cenário:
+
+const multiplicar = (n1, n2) => n1 * n2
+console.log(multiplicar(1, 2))
+JavaScriptCopy
+
+Teríamos nossa pilha, da seguinte forma:
+A função main será o ponto de partida para a execução da pilha.
+
+Depois chamamos o console.log e depois a função multiplicar, dessa maneira, a terceira chamada estará no topo da pilha. Isso acontece por conta do funcionamento de pilhas, onde a primeira a entrar é a última a sair e novas inserções serão no topo.
+
+Assim que a função multiplicar for executada e retornada, ela será removida da pilha, o mesmo acontecerá para o console.log, ou seja, assim que ele for chamado e retornado, também será retirado da pilha.
+
+Event queue:
+
+Quando em uma função que está na stack tem um set time out, essa função que tem o settimeout será alocada automaticamente no event queue, e então será executada somente quando todas as funções da stack serem executadas, caso tenha um outro settimeout dentro do event queue terá mais prioridade a quem for definido o menor tempo de execução.
