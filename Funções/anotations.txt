@@ -1,0 +1,21 @@
+function expression:
+const BoaTarde = function(){
+    console.log("Boa tarde")
+}
+Quando é passado mais parametros na hora de chamar a função, o javascript não ve problema, ele só ira somar os 2 primeiros valores e ignorara o resto:
+function soma(a,b){
+    return(a+b)
+}
+const res = soma(3,3, 6, 8, 9)
+console.log(res)
+a resposta continua sendo 6.
+
+Agora quando é passado menos parametros do é solicitado exemplo:
+const res2 = soma(6)
+console.log(res2)
+ele imprimirá um NaN.
+Mas caso defina nos parametros da função que inicialmente os dois valem 0:
+function soma(a = 0,b = 0){
+    return(a+b)
+}
+ele imprimirá 0 caso falte uma declaração

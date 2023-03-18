@@ -16,3 +16,95 @@ Assim que a função multiplicar for executada e retornada, ela será removida d
 Event queue:
 
 Quando em uma função que está na stack tem um set time out, essa função que tem o settimeout será alocada automaticamente no event queue, e então será executada somente quando todas as funções da stack serem executadas, caso tenha um outro settimeout dentro do event queue terá mais prioridade a quem for definido o menor tempo de execução.
+Execicio:
+function fn3(){
+ console.log("fn3")
+}
+function fn2(){
+ fn3()
+}
+function fn1(){
+    fn2()
+}
+function main(){
+ fn1()
+}
+main()
+Nesse exemplo, executamos a função main(), essa função main executou a função fn1(), fn1 executou fn2,
+fn2 executou fn3 que mostrou a mensagem no console "fn3".
+
+Exercicio 2:
+function fn3(){
+    setTimeout(() => console.log("Timeout"), 3000);
+    console.log("fn3")
+}
+function fn2(){
+ fn3()
+}
+function fn1(){
+    fn2()
+}
+function main(){
+ fn1()
+}
+main()
+console.log("Fim")
+Nesse caso o settimeout na função fn3 irá adicionar uma pendencia no eventqueue que precisará executar depois de 3 segundos, vai executar o console.log(fn3), vai passar por cada função até chegar em main para depois executar o "fim", após isso esperará 3 segundos e assim irá executar.
+
+Exercicio 3:
+function fn5(){
+    console.log("timeout")
+   }
+function fn4(){
+    fn5()
+   }
+function fn3(){
+    setTimeout(() => fn4(), 3000)
+    console.log("fn3")
+}
+function fn2(){
+ fn3()
+}
+function fn1(){
+    fn2()
+}
+function main(){
+ fn1()
+}
+main()
+console.log("Fim")
+Nesse caso a diferença é que o console.log do timeout está em outra função, mas ele esperará da mesma forma pois a fn3 ainda está com o timeout esperando 3 segundos, e esse timeout executará a função fn4 e fn5(que ai imprimira a mensagem).
+
+Exercicio 4:
+const EsperarPor = (tempo) => {
+    const futuro = Date.now() + tempo
+    while(Date.now() < futuro){
+
+    }
+}
+EsperarPor(5000)
+console.log("Fim")
+Nesse caso criamos uma função EsperarPor com o parametro (tempo), criamos uma variavel futuro que será a data e hora atual + o tempo que virá no parametro ou seja se o tempo for (5000), o futuro será = daqui 5 segundos, criamos um loop while para enquanto a hora atual for menor do que o futuro, ele não execute nada, quando se passar o tempo, ele sairá do loop e da função e executará o console.log("fim")
+
+Exercicio 5:
+const EsperarPor = (tempo) => {
+    const futuro = Date.now() + tempo
+    while(Date.now() < futuro){
+
+    }
+}
+setTimeout(() => console.log("Exec #01"), 400)
+setTimeout(() => {
+    EsperarPor(5000)
+    console.log("Exec")
+}, 300)
+EsperarPor(5000)
+console.log("Fim")
+Nesse caso adicionamos 2 settimeout antes do esperarpor(5000), porém apesar de ter um tempo menor e ser adicionado antes, como nele está especificado o settimeout ele executará depois da função esperarpor(5000), então ele esperara a execução da função que será de 5 segundos, após isso ele executará a função que tem o menor tempo de timeout, nesse caso a com 300, mesmo que dentro dela tenha uma espera maior, ele dará prioridade por conta do timeout ser mais curto, ela executará com a espera de 5 segundos e só assim executara a função timeout com 400 instantaneamente.
+5 segundos....
+Fim
+5 segundos....
+Exec
+Exec #01
+
+
