@@ -19,3 +19,114 @@ function soma(a = 0,b = 0){
     return(a+b)
 }
 ele imprimirá 0 caso falte uma declaração
+
+Como passar uma função como parametro da função:
+function executarQualquerCoisa(fn){
+    console.log(typeof(fn))
+}
+executarQualquerCoisa(3)
+Nesse caso não passamos uma função como parametro então o que acontecerá é:
+A função rebece um parametro fn.
+A função imprimirá o tipo do valor que o parametro fn recebeu.
+Chamamos a função e passamos o numero 3 como parametro.
+a função é executada e imprime "number".
+
+Próximo passo, passando funções:
+function bomDia() {
+    console.log("Bom dia!")
+}
+const boaTarde = function() {
+    console.log("Boa Tarde!")
+}
+
+function executarQualquerCoisa(fn){
+    // if(typeof fn == "function"){
+    //     fn()
+    // }
+    console.log(typeof(fn))
+}
+executarQualquerCoisa(bomDia)
+executarQualquerCoisa(boaTarde)
+Nesse caso criaremos funções e passaremos como parametros.
+Ao imprimir o typeof ele respondera "function".
+
+Próximo passo.
+function bomDia() {
+    console.log("Bom dia!")
+}
+const boaTarde = function() {
+    console.log("Boa Tarde!")
+}
+
+function executarQualquerCoisa(fn){
+    if(typeof fn === "function"){
+        fn()
+    }
+}
+executarQualquerCoisa(bomDia)
+executarQualquerCoisa(boaTarde)
+Nesse caso em vez de imprimir o tipo do valor, vamos criar uma condição se o tipo do valor passado no parametro for uma função, nós executaremos a função.
+só recaptulando que o operador === comparará o valor e o tipo, enquanto o operador == comparará somente o valor.
+
+Próximo passo:
+retornando função a partir de outra função:
+function potencial(base, exp){
+    return Math.pow(base, exp)
+}
+const bits8 = potencial(2, 8)
+console.log(typeof(bits8))
+console.log(bits8)
+Nesse caso criaremos uma função para calcular a potencia com os parametros (base, exp).
+Após isso criamos uma variavel bits8 que recebe o retorno da função potencial com base 2 e exp 8.
+Se consultarmos o tipo da variavel bits8 ele será numero pois o retorno é um numero obviamente e não uma função.
+ao imprimir a variavel obtemos o valor da operação que é 256.
+
+Próximo passo, mais dificil de entender porém com mais exemplos.
+
+function potencial(base){
+    return function(exp){
+        return Math.pow(base, exp)
+    }
+}
+const potencia2 = potencial(2)
+console.log(typeof(potencia2))
+console.log(potencia2(8))
+
+Nesse caso a função potencial agora só terá o parametro base e retornara uma função anonima(sem nome) com o parametro expoente, essa função anonima retornará a potencia base^expoente, declararemos uma variavel potencia2, que falaremos que a base será fixamente2, quando verificamos o tipo, vamos ver que agora sim o tipo será uma função por que definimos a variavel como a execução da execução potencial, e a função potencial retorna outra função.
+definimos o parametro da variavel potencia2 como 8 e assim ele reconhece com 8 é o expoente, pois o potencia2 é o retorno da potencial() e o parametro do retorno é o exp.
+vamos pedir depois para imprimir a potencia de 2 com o expoente 8.
+console.log(potencia2(8))
+
+Mais exercicios com a mesma lógica:
+1. function Multiplicacao(v1){
+    return function(v2){
+        return(v1*v2)
+    }
+}
+const dobro = Multiplicacao(2)
+console.log(dobro(5))
+resposta "10"
+2. function Dividir(v1){
+    return function(v2){
+        return(v2/v1)
+    }
+}
+
+const metade = Dividir(2)
+console.log(metade(8))
+resposta "4"
+Podemos também fazer isso:
+console.log(Dividir(4)(64))
+resposta "16"
+64 é parametro da função anonima.
+
+Arrow function:
+const (Nome da função) = (params) => (return)
+primeira forma de somar todos os numeros do array:
+function somar(nums){
+    let total = 0
+    for(let n =0; n<nums; n++){
+        total+=n
+    }
+    return total
+}
