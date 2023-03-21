@@ -1,10 +1,10 @@
-O Terminal no Windows é uma ferramenta imprescindível na vida dos profissionais da TI, do programador ao profissional de redes, pois é uma ferramenta capaz de fazer instalações, configurações, checar dados e navegar pelo sistema.
+O Terminal no Windows é uma ferramenta imprescindível na vida dos profissionais da TI, do programador ao profissional de redes, pois é uma ferramenta capaz de fazer instalações, configurações, verificar dados e navegar pelo sistema.
 cmd:
 Comando "dir": Mostrar pastas e arquivos do diretório atual.
-Comando "cd (nome da pasta ou caminho)": Apontar para o cmd o diretório que dejesa abrir, "cd documents" ou "cd Documents\JavascriptFuncional"
+Comando "cd (nome da pasta ou caminho)": Apontar para o cmd o diretório que deseja abrir, "cd documents" ou "cd Documents\JavascriptFuncional"
 Comando "cd..": volta um diretório atrás, ex: O caminho atual é (Documents\JavascriptFuncional) ao executar o cd.. O caminho atual é (Documents)
 Comando "cls": limpa todos os comandos listados.
-Comando "mkdir (nome da pasta)": Cria uma nova pasta dentro do diretorio atual
+Comando "mkdir (nome da pasta)": Cria uma nova pasta dentro do diretório atual
 Comando "del (nome do arquivo ou pasta)": exclui a pasta ou arquivo
 Comando "help": mostra todos os comando que se pode utilizar
 Comando "(nome da aplicação) --version": mostra a versão que está a aplicação ex: "node -- version"

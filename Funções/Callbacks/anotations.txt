@@ -1,0 +1,9 @@
+Revisando conceitos:
+Criando calculadora somar e subtrair com a função no parametro e usando arrow functions:
+const somar = (a, b) => a+b
+const sub = (a, b) => a-b
+const exec = (fn, a, b) => console.log(fn(a,b))
+exec(somar, 3, 2)
+
+Repetir um comando definindo um intervalo:
+setInterval(() => console.log("Exec.."), 1000)

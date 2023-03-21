@@ -2,7 +2,7 @@ function expression:
 const BoaTarde = function(){
     console.log("Boa tarde")
 }
-Quando é passado mais parametros na hora de chamar a função, o javascript não ve problema, ele só ira somar os 2 primeiros valores e ignorara o resto:
+Quando é passado mais parâmetros na hora de chamar a função, o javascript não ve problema, ele só ira somar os 2 primeiros valores e ignorara o resto:
 function soma(a,b){
     return(a+b)
 }
@@ -10,7 +10,7 @@ const res = soma(3,3, 6, 8, 9)
 console.log(res)
 a resposta continua sendo 6.
 
-Agora quando é passado menos parametros do é solicitado exemplo:
+Agora quando é passado menos parâmetros do é solicitado exemplo:
 const res2 = soma(6)
 console.log(res2)
 ele imprimirá um NaN.
@@ -121,12 +121,44 @@ resposta "16"
 64 é parametro da função anonima.
 
 Arrow function:
-const (Nome da função) = (params) => (return)
-primeira forma de somar todos os numeros do array:
-function somar(nums){
+const (Nome da função) = (params) => (expressão/retorno)
+quando depois da seta tem chaves {}, você pode escrever return, porém quando não tiver,sempre tem return.
+
+Exemplos:
+const hello = (nome) => console.log(`Olá ${nome}`)
+hello("Gustavo")
+const sum = (a,b) => (a+b)
+const mut = (a,b) => (a*b)
+const div = (a,b) => (a/b)
+const sub = (a,b) => (a-b)
+forma de somar todos os numeros do array:
+const somar = nums => {
     let total = 0
-    for(let n =0; n<nums; n++){
-        total+=n
+    for(let n of nums){
+        total += n
     }
     return total
 }
+console.log(somar(10,5,15,12,8))
+
+Próximo passo:
+Rest: Você pode fazer com que os parametros sejam variaveis em vez de ter que criar um parametro array, o rest pegara todos os parametros e jogara isso dentro de um array:
+const somar = (...nums) => {
+    let total = 0
+    for(let n of nums){
+        total += n
+    }
+    return total
+}
+console.log(somar(10,5,15,12,8))
+
+Próximo passo:
+Transformando essa função:
+function potencial(base){
+    return function(exp){
+        return Math.pow(base, exp)
+    }
+}
+
+Em uma arrow function menor:
+const potencia = base => exp => Math.pow(base, exp)

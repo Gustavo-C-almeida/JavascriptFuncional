@@ -23,12 +23,17 @@
 //     }
 //     return total
 // }
-const somar = nums => {
-    let total = 0
-    for(let n of nums){
-        total += n
-    }
-    return total
-}
+// const somar = (...nums) => {
+//     console.log(Array.isArray(nums))
+//     let total = 0
+//     for(let n of nums){
+//         total += n
+//     }
+//     return total
+// }
+// console.log(somar(10,5,15,12,8))
 
-console.log(somar([10,5,15]))
+const potencia = base => exp => Math.pow(base, exp)
+
+console.log(potencia(5)(2))
+
