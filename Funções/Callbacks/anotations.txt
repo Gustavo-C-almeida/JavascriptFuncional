@@ -7,3 +7,37 @@ exec(somar, 3, 2)
 
 Repetir um comando definindo um intervalo:
 setInterval(() => console.log("Exec.."), 1000)
+
+Imprimindo o caminho atual no console: 
+console.log(__dirname)
+
+Módulo Path: é um módulo integrado que ajuda você a trabalhar com caminhos do sistema de arquivos de maneira independente do sistema operacional.
+
+Com ele você pode ver o caminho de um arquivo em especifico:
+
+const path = require("path")
+
+const caminho = path.join(__dirname, "dados.txt")
+
+console.log(caminho)
+
+Módulo fs: O módulo fs disponibiliza diversas funcionalidades úteis para acessar e interagir com o file system.
+Como passar uma função que faz a leitura de um arquivo:
+//importando o modulo fs
+const fs = require("fs")
+//importando o modulo path
+const path = require("path")
+//Registrando o caminho do arquivo:
+const caminho = path.join(__dirname, "dados.txt")
+//criando a função callback.
+const exibirconteudo = (_, conteudo) => console.log(conteudo.toString())
+//Na função readFile, vamos passar os parametros: path(no caso o caminho), Opções que deixaremos vazias e função callback
+fs.readFile(caminho,{}, exibirconteudo)
+//se não quisermos colocar opções, podemos pular o parametro e colocarmos direto a callback
+fs.readFile(caminho, exibirconteudo)
+
+Caso queira fazer essa execução de forma sincrona, terá que fazer o seguinte:
+console.log("Inicio Sync...")
+const conteudo = fs.readFileSync(caminho)
+console.log(conteudo.toString())
+console.log("Fim Sync...")
