@@ -162,3 +162,18 @@ function potencial(base){
 
 Em uma arrow function menor:
 const potencia = base => exp => Math.pow(base, exp)
+
+adicionando nossa propriedade map no array:
+
+Array.prototype.meuMap = function(fn){
+    const novoArray = []
+    for(let i = 0; i<this.length;i++){
+        const res = fn(this[i], i, this)
+        novoArray.push(res)
+    }
+    return novoArray
+}
+nome = produto => produto.nome
+total = produto => produto.preco*produto.quant
+console.log(carrinho.meuMap(nome))
+console.log(carrinho.meuMap(total))

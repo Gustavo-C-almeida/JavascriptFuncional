@@ -30,3 +30,19 @@ const nums = [1,2,3]
 const res = (n,i,a) => n + i + a.length
 console.log(nums.map(res))
 então imprimiria 4,6,8
+
+Exercicio com array de objeto:
+
+const carrinho = [
+    {nome: "caneta", quant: 12, preco: 8.99},
+    {nome: "impressora", quant: 2, preco: 380},
+    {nome: "Estojo", quant: 1, preco: 12}
+]
+nome = produto => produto.nome
+total = produto => produto.preco*produto.quant
+console.log(carrinho.map(nome))
+console.log(carrinho.map(total))
+
+resposta: 
+(3) ['caneta', 'impressora', 'Estojo']
+(3) [107.88, 760, 12]
