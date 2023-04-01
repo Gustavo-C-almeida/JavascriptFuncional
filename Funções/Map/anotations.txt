@@ -46,3 +46,30 @@ console.log(carrinho.map(total))
 resposta: 
 (3) ['caneta', 'impressora', 'Estojo']
 (3) [107.88, 760, 12]
+
+Criando nosso próprio map:
+Array.prototype.meuMap = function(fn){
+    const novoArray = []
+    for(let i = 0; i<this.length;i++){
+        const res = fn(this[i], i, this)
+        novoArray.push(res)
+    }
+    return novoArray
+}
+
+primeiro vamos definir uma propriedade do array chamada meuMap.
+essa propriedade será uma função e terá outra função como parametro.
+dentro dessa função criaremos um loop para passar por cada elemento do array.
+nesse loop quando passar pelo elemento ele definirá a fn com os parametros this[i](elemento atual), i(indice que estamos passando), this(o próprio array).
+o resultado dessa função será um novo elemento, então vamos adicionar um novoArray, esse novoArray será um array vazio.
+no final da função vamos retornar o novoArray.
+para adicionar dentro do array vazio, vamos chamar o novoArray.push()(adicionará um novo elemento).
+e dentro do push() colocaremos a função fn no caso a variavel res.
+e agora para testarmos em vez de chamar carrinho.map, colocaremos carrinho.meuMap:
+
+nome = produto => produto.nome
+total = produto => produto.preco*produto.quant
+console.log(carrinho.meuMap(nome))
+console.log(carrinho.meuMap(total))
+
+
