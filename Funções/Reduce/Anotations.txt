@@ -1,0 +1,10 @@
+vamos pegar como exemplo um array:
+
+5,2,5,7,-5,2
+
+map simplesmente transforma para um array de mesmo tamanho porém com os ajustes que foram pedidos.
+
+filter tira alguns elementos e retorna somente o que é aprovado pela função.
+
+já o reduce pode fazer qualquer coisa.
+vamos começar fazendo o somar.

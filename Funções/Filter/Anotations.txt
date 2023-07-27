@@ -1,0 +1,76 @@
+diferença map e filter:
+
+função map transforma cada elemento de um array original, criando um novo array com os resultados da aplicação de uma função de transformação a cada elemento. Enquanto isso, a função filter cria um novo array contendo apenas os elementos do array original que satisfazem uma condição especificada na função de teste.
+
+Vamos usar como exemplo um array de 6 posições representando notas de alunos: [6,5,7,3,9,10]
+e quero pegar apenas as notas maiores do que sete.
+array(que vai ser uma variavel).filter(fn(fn é a função que vai filtrar os elementos))
+Isso criará um array resultante que vai ser os numero já filtrados.
+a fn retornará um valor booleano true ou false.
+se o elemento do array for true ele fara parte do array resultante
+se o elemento do array for false não fara parte
+diferentemente do filter, agora o array pode gerar 6 ou menos posições de acordo com os resultados
+
+ex:
+fn = função
+el = elemento
+
+fn: el >= 7 
+se o el for 1,2,3,4,5,6 o resultado é false
+se o el for 7,8,9,10 o resultado é true
+
+o fn será a função utilizada para filtrar os elementos do array.
+ela validara cada elemento do array e por cada elemento que passar decidirá se fará parte do array resultante.
+
+exercicio com filter:
+
+// exercicio básico
+const alunos = [
+    { nome: "João", nota: 8.5, idade: 20 },
+    { nome: "Maria", nota: 9.0, idade: 22 },
+    { nome: "Pedro", nota: 7.2, idade: 19 },
+    { nome: "Ana", nota: 9.8, idade: 21 },
+    { nome: "Lucas", nota: 6.5, idade: 23 }
+  ];
+const getNome = aluno => aluno.nome
+const ntmaiorigualoito = aluno => aluno.nota >= 8
+const ntmaiorquedez = aluno => aluno.nota > 10
+const alunosbonsidademaiordevinte = aluno => aluno.nota >= 8 && aluno.idade >= 22
+const alunosbons = alunos
+    .filter(alunosbonsidademaiordevinte) 
+    .map(getNome)
+    // aqui a função dentro de .filter() pode ser alterada
+
+console.log(alunosbons)
+
+agora vamos fazer o nosso próprio filter:
+
+Array.prototype.meuFilter = function(fn) {
+    const newArray = [] - criando o array resultante.
+
+    for(let i = 0; i < this.length; i++){
+      if(fn(this[i], i, this)){
+          newArray.push(this[i]) - se foi validado, o elemento fará parte do array resultante.
+      } - esse if verifica se o elemento do array foi validado pela função.
+    } - loop for para passar por cada elemento do array.
+
+    return newArray
+} - função definida para fazer parte dos prototypes, fn como parametro que será usada para validação.
+
+substituindo no exercicio:
+const alunosbons = alunos
+    .meuFilter(alunosbonsidademaiordevinte) 
+    .map(getNome)
+    // aqui a função dentro de .filter() pode ser alterada
+
+console.log(alunosbons)
+
+
+
+  
+  
+
+
+
+
+
