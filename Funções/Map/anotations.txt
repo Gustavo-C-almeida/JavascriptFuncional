@@ -33,15 +33,71 @@ então imprimiria 4,6,8
 
 Exercicio com array de objeto:
 
-const carrinho = [
-    {nome: "caneta", quant: 12, preco: 8.99},
-    {nome: "impressora", quant: 2, preco: 380},
-    {nome: "Estojo", quant: 1, preco: 12}
-]
-nome = produto => produto.nome
-total = produto => produto.preco*produto.quant
-console.log(carrinho.map(nome))
-console.log(carrinho.map(total))
+// exercicio básico
+const alunos = [
+    { nome: "João", nota: 8.5, idade: 20 },
+    { nome: "Maria", nota: 9.0, idade: 22 },
+    { nome: "Pedro", nota: 7.2, idade: 19 },
+    { nome: "Ana", nota: 9.8, idade: 21 },
+    { nome: "Lucas", nota: 6.5, idade: 23 }
+  ];
+
+const getNome = aluno => aluno.nome
+console.log(alunos.map(getNome))
+
+const GetCompComMedia = aluno => aluno.nota - 7
+const ComparaMedia = alunos.map(GetCompComMedia)
+console.log(ComparaMedia)
+
+res: [ 'João', 'Maria', 'Pedro', 'Ana', 'Lucas' ]
+[ 1.5, 2, 0.20000000000000018, 2.8000000000000007, -0.5 ]
+
+temos como criar nossa propria versão de map.
+vamos usar de exemplo para criar o map, a versão oficial.
+a vantagem de trabalhar com programação funcional é que parte das responsabilidades quem vai assumir é a própria linguagem.
+então não teremos que nos preocupar em criar uma variável, fazer um laço ou varias operações, poderemos fazer isso com uma linha de código só.
+
+para criarmos nosso proprio map, vamos utilizar o Array.prototype, o Array.prototype tem como propriedades literalmente todas as funções já definidas, como: push, lenght, filter, map.. etc, com isso podemos também criar uma função como:
+Array.prototype.MeuMap
+
+Então vamos lá: 
+
+definindo MeuMap: 
+Array.prototype.MeuMap = function() {
+
+}
+
+O array será acessado a partir do "this"
+colocaremos um parametro fn na função
+el será o elemento do array que naquele momento está sendo verificado.
+
+for (let i = 0; i < this.lenght; i++) ou seja: loop até acabar o array.
+
+for (let i = 0; i < this.lenght; i++){
+    fn(this[i], i, this) ou seja os parametros que a função espera é o array do indice atual, o indice, e o array completo.
+}
+
+o resultado dessa função será um novo elemento.
+vamos criar um novo array para que ao mapealos, eles serem adicionados ao novo array
+Array.prototype.MeuMap = function(fn) {
+    const NewArray = [] -novo array
+    for (let i = 0; i < this.length; i++){
+        const res = fn(this[i], i, this) - definindo o res, que será o elemento que está passando pelo indice
+        NewArray.push(res) - inserindo o elemento atual no novo array
+    }
+    return NewArray - retornando a resposta da função sendo o novo array
+}
+
+agora vamos substituir no nosso exercicio:
+
+const getNome = aluno => aluno.nome
+console.log(alunos.MeuMap(getNome))
+
+const GetCompComMedia = aluno => aluno.nota - 7
+const ComparaMedia = alunos.MeuMap(GetCompComMedia)
+console.log(ComparaMedia)
+
+
 
 resposta: 
 (3) ['caneta', 'impressora', 'Estojo']

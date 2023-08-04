@@ -1,0 +1,111 @@
+vamos pegar como exemplo um array:
+
+5,2,5,7,-5,2
+
+map simplesmente transforma para um array de mesmo tamanho porém com os ajustes que foram pedidos.
+
+filter tira alguns elementos e retorna somente o que é aprovado pela função.
+
+já o reduce pode fazer qualquer coisa.
+vamos começar fazendo o somar.
+
+array.reduce(fn, ValorInicial ou i)
+
+vamos supor que tenhamos um valor inicial: 0
+
+como será feito a execução do algoritmo para que ele some todos os valores?
+ele vai receber dois valores: um acumulador ou seja do processamento anterior, conforme passam os elementos, ele se altera e também um EL(elemento) já que queremos somar, o que essa função ira fazer é: pegar o valor do acumulador + el(elemento atual)
+
+array ex: [5,2,5,7,-5,2]
+[*5*,2,5,7,-5,2]
+(0(valor inicial), 5(el)) => 5(resultado 0+5) -> esse resultado irá para o acumulador
+proximo el..
+[5,*2*,5,7,-5,2]
+(5(acumulador), 2(el)) => 7(res) ->acumulador agora é 7
+[5,2,*5*,7,-5,2]
+(7, 5) => 12
+[5,2,5,*7*,-5,2]
+(12, 7) => 19
+[5,2,5,7,*-5*,2]
+(19, -5) => 14
+[5,2,5,7,-5,*2*]
+(14, 2) => 16
+
+agora vamos usar outro exemplo de array porém multiplicaremos em vez de somar.
+fn: (acc, el) => acc*el
+
+[2,4,8,-2]
+como não temos valor inicial definido, o primeiro elemento vai ser o valor do acumulador.
+
+(2, 4) => 8 ->acumulador agora é 8
+(8, 8) => 16
+(16, -2) => 8
+
+como implementar na prática:
+
+definindo array de objeto:
+const carrinhoDeCompras = [
+    { nome: "Arroz", preco: 5.99, quantidade: 2 },
+    { nome: "Leite", preco: 3.50, quantidade: 3 },
+    { nome: "Maçã", preco: 2.50, quantidade: 1 },
+    // Adicione mais produtos conforme necessário
+];
+
+definindo função que multiplica a quantidade do item pelo preço:
+const getTot = item => item.quantidade * item.preco
+
+definindo função de soma para colocarmos no reduce:
+const somar = (acc(acumulador), el(elemento)) => acc+el
+
+definindo a variavel TotGeral, que fará um map fazendo em cada item a multiplicação da quantidade pelo preço, e depois o reduce que fará a soma do item atual e do acumulador:
+const TotGeral = carrinhoDeCompras
+.map(getTot)
+.reduce(somar)
+
+console.log(TotGeral)
+
+resposta do console: 24.98
+
+Para vermos o processamento do reduce alteramos o codigo dessa forma:
+multiplicação da quantidade pelo preço do elemento:
+const getTot = item => item.quantidade * item.preco
+
+função de somar, porém imprimindo o acumulador e o elemento atual:
+const somar = (acc, el) => {
+    console.log(acc, el)
+    return acc + el
+}
+
+Variavel que indica o valor total de cada elemento:
+const TotEL = carrinhoDeCompras.map(getTot)
+
+imprimindo preço total de cada elemento:
+console.log(TotEL)
+
+definindo a variavel TotGeral como o total de cada elemento somados pelo reduce somar
+const TotGeral = 
+TotEL.reduce(somar)
+
+imprimindo o total da compra:
+console.log(TotGeral)
+
+resposta do console:
+[ 11.98, 10.5, 2.5 ]
+11.98 10.5
+22.48 2.5
+24.98
+
+caso queremos alterar o valor inicial da contagem temos que fazer isso:
+ 
+"TotEL.reduce(somar, 0(aqui vai o valor inicial da contagem))"
+
+resposta definindo valor inicial:
+0 11.98
+11.98 10.5
+22.48 2.5
+24.98
+
+
+
+
+
